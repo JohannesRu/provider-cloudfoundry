@@ -1,0 +1,9 @@
+apiVersion: space.cloudfoundry.upbound.io/v1alpha1
+kind: Space
+metadata:
+  name: hello-space
+spec:
+  forProvider:
+    org: ""
+  providerConfigRef:
+    name: default

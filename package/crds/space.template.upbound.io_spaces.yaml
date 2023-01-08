@@ -5,18 +5,18 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.8.0
   creationTimestamp: null
-  name: resources.null.template.upbound.io
+  name: spaces.space.template.upbound.io
 spec:
-  group: null.template.upbound.io
+  group: space.template.upbound.io
   names:
     categories:
     - crossplane
     - managed
     - template
-    kind: Resource
-    listKind: ResourceList
-    plural: resources
-    singular: resource
+    kind: Space
+    listKind: SpaceList
+    plural: spaces
+    singular: space
   scope: Cluster
   versions:
   - additionalPrinterColumns:
@@ -35,7 +35,7 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: Resource is the Schema for the Resources API. <no value>
+        description: Space is the Schema for the Spaces API. <no value>
         properties:
           apiVersion:
             description: 'APIVersion defines the versioned schema of this representation
@@ -50,7 +50,7 @@ spec:
           metadata:
             type: object
           spec:
-            description: ResourceSpec defines the desired state of Resource
+            description: SpaceSpec defines the desired state of Space
             properties:
               deletionPolicy:
                 default: Delete
@@ -63,13 +63,44 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  triggers:
+                  allowSsh:
+                    type: boolean
+                  annotations:
                     additionalProperties:
                       type: string
-                    description: A map of arbitrary strings that, when changed, will
-                      force the null resource to be replaced, re-running any associated
-                      provisioners.
                     type: object
+                  asgs:
+                    items:
+                      type: string
+                    type: array
+                  auditors:
+                    items:
+                      type: string
+                    type: array
+                  developers:
+                    items:
+                      type: string
+                    type: array
+                  isolationSegment:
+                    type: string
+                  labels:
+                    additionalProperties:
+                      type: string
+                    type: object
+                  managers:
+                    items:
+                      type: string
+                    type: array
+                  org:
+                    type: string
+                  quota:
+                    type: string
+                  stagingAsgs:
+                    items:
+                      type: string
+                    type: array
+                required:
+                - org
                 type: object
               providerConfigRef:
                 default:
@@ -243,7 +274,7 @@ spec:
             - forProvider
             type: object
           status:
-            description: ResourceStatus defines the observed state of Resource.
+            description: SpaceStatus defines the observed state of Space.
             properties:
               atProvider:
                 properties:

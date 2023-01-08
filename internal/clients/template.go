@@ -19,6 +19,12 @@ import (
 )
 
 const (
+	keyBaseURL  = "api_url"
+	keyUser     = "user"
+	keyPassword = "password"
+)
+
+const (
 	// error messages
 	errNoProviderConfig     = "no providerConfigRef provided"
 	errGetProviderConfig    = "cannot get referenced ProviderConfig"
@@ -67,6 +73,18 @@ func TerraformSetupBuilder(version, providerSource, providerVersion string) terr
 			"username": creds["username"],
 			"password": creds["password"],
 		}*/
+
+		// set provider configuration
+		ps.Configuration = map[string]any{}
+		if v, ok := creds[keyBaseURL]; ok {
+			ps.Configuration[keyBaseURL] = v
+		}
+		if v, ok := creds[keyUser]; ok {
+			ps.Configuration[keyUser] = v
+		}
+		if v, ok := creds[keyPassword]; ok {
+			ps.Configuration[keyPassword] = v
+		}
 		return ps, nil
 	}
 }
