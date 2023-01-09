@@ -10,7 +10,9 @@ import (
 
 	ujconfig "github.com/upbound/upjet/pkg/config"
 
+	"github.com/upbound/upjet-provider-template/config/serviceinstance"
 	"github.com/upbound/upjet-provider-template/config/space"
+	"github.com/upbound/upjet-provider-template/config/spaceusers"
 )
 
 const (
@@ -35,6 +37,8 @@ func GetProvider() *ujconfig.Provider {
 	for _, configure := range []func(provider *ujconfig.Provider){
 		// add custom config functions
 		space.Configure,
+		spaceusers.Configure,
+		serviceinstance.Configure,
 	} {
 		configure(pc)
 	}

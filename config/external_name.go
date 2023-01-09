@@ -10,7 +10,9 @@ import "github.com/upbound/upjet/pkg/config"
 // provider.
 var ExternalNameConfigs = map[string]config.ExternalName{
 	// Import requires using a randomly generated ID from provider: nl-2e21sda
-	"cloudfoundry_space": config.NameAsIdentifier,
+	"cloudfoundry_space":            config.NameAsIdentifier,
+	"cloudfoundry_space_users":      config.NameAsIdentifier,
+	"cloudfoundry_service_instance": config.NameAsIdentifier,
 }
 
 // ExternalNameConfigurations applies all external name configs listed in the
