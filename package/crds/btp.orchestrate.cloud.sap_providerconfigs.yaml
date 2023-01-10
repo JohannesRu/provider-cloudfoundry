@@ -5,9 +5,9 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.8.0
   creationTimestamp: null
-  name: providerconfigs.template.upbound.io
+  name: providerconfigs.btp.orchestrate.cloud.sap
 spec:
-  group: template.upbound.io
+  group: btp.orchestrate.cloud.sap
   names:
     categories:
     - crossplane

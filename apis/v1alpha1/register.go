@@ -13,7 +13,7 @@ import (
 
 // Package type metadata.
 const (
-	Group   = "template.upbound.io"
+	Group   = "btp.orchestrate.cloud.sap"
 	Version = "v1alpha1"
 )
 
